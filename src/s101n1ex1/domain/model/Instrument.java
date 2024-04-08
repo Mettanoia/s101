@@ -21,6 +21,14 @@ public final class Instrument implements Playable{
 
     }
 
+    public String getName() {
+        return name;
+    }
+
+    public float getPrice() {
+        return price;
+    }
+
     @Override
     public String play() {
 
