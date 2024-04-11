@@ -51,8 +51,8 @@ public class Main {
         var character = Entrada.llegirChar("Introduce tu inicial:", Format.CHAR);
         System.out.println("The introduced char is: " + character);
 
-        var phoneNumber = Entrada.llegirString("Introduce tu telefono:", Format.PHONE_NUMBER);
-        System.out.println("Your answer: " + phoneNumber);
+        var email = Entrada.llegirString("Introduce tu email:", Format.EMAIL);
+        System.out.println("Your answer: " + email);
 
         var yesNo = Entrada.llegirSiNo("¿Te ha gustado el experimento?", Format.BOOL);
         System.out.println("Your answer: " + yesNo);

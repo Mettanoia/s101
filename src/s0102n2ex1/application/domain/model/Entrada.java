@@ -1,12 +1,13 @@
 package s0102n2ex1.application.domain.model;
 
+import javax.naming.OperationNotSupportedException;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Entrada {
 
     static final class FormatChecker {
-        public static String checkFormat(Format format, String input) throws InputMismatchException {
+        public static void checkFormat(Format format, String input) throws InputMismatchException, OperationNotSupportedException {
 
             switch (format) {
 
@@ -33,15 +34,14 @@ public class Entrada {
 
                 case EMAIL -> {
 
-                    if (!(input.matches("(?=.{1,64}@)[A-Za-z0-9_-]+(\\\\.[A-Za-z0-9_-]+)*@[^-][A-Za-z0-9-]+(\\\\.[A-Za-z0-9-]+)*(\\\\.[A-Za-z]{2,})$")))
-                        throw new InputMismatchException("The input must contain a properly formatted email.");
+                    throw new OperationNotSupportedException("The functionality CHECK IF EMAIL IS VALID has not been implemented yet");
 
                 }
 
                 case PHONE_NUMBER -> {
 
-                    if (!(input.matches("^(\\\\+\\\\d{1,3}( )?)?(\\\\d{3}[ ]?)(\\\\d{2}[ ]?){2}\\\\d{2}$")))
-                        throw new InputMismatchException("The input must contain a properly formatted phone number.");
+                    throw new OperationNotSupportedException("The functionality CHECK IF PHONE NUMBER IS VALID has not been implemented yet");
+
 
                 }
 
@@ -60,8 +60,6 @@ public class Entrada {
                 }
 
             }
-
-            return input;
 
         }
     }
@@ -84,7 +82,7 @@ public class Entrada {
 
                 inputAccepted = true;
 
-            } catch (InputMismatchException e) {
+            } catch (InputMismatchException | OperationNotSupportedException e) {
                 System.out.println(e.getMessage());
             }
         }
